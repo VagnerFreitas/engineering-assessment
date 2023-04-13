@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: 'FoodTruckFinder'
+#  datasource:
+#    username: foodtruckfinder
+#    password: password #change it
+#    url: jdbc:postgresql://localhost:5432/customer
+#    driverClassName: org.postgresql.Driver
