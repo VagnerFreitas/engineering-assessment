@@ -6,10 +6,9 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: foodtruckfinder
-      PGDATA: /data/postgres
     volumes:
-      - postgres:/data/postgres
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./scripts/trucks.csv:/csv/trucks.csv
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "5432:5432"
     networks:
@@ -30,10 +29,24 @@ services:
     networks:
       - postgres
     restart: unless-stopped
+
+  web:
+    container_name: foodtruckfinder
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: foodtruckfinder
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - postgres
+    restart: unless-stopped
+
 networks:
   postgres:
     driver: bridge
 
 volumes:
-  postgres:
   pgadmin:

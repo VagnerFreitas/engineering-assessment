@@ -4,8 +4,8 @@ server:
 spring:
   application:
     name: 'FoodTruckFinder'
-#  datasource:
-#    username: foodtruckfinder
-#    password: password #change it
-#    url: jdbc:postgresql://localhost:5432/customer
-#    driverClassName: org.postgresql.Driver
+  datasource:
+    username: postgres
+    password: password
+    url: jdbc:postgresql://postgres:5432/foodtruckfinder
+    driverClassName: org.postgresql.Driver

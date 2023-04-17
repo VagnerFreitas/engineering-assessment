@@ -4,12 +4,10 @@ CREATE TABLE IF NOT EXISTS trucks (
   facility_type VARCHAR(255),
   location_description VARCHAR(255),
   address VARCHAR(255),
-  food_items VARCHAR(255),
+  food_items TEXT,
   latitude DOUBLE PRECISION,
   longitude DOUBLE PRECISION
 );
-
-ALTER TABLE trucks ADD CONSTRAINT unique_applicant_address UNIQUE (applicant, address);
 
 CREATE TABLE IF NOT EXISTS users (
   id SERIAL PRIMARY KEY,
@@ -28,3 +26,6 @@ CREATE TABLE IF NOT EXISTS ratings (
 );
 
 ALTER TABLE ratings ADD CONSTRAINT check_rating_range CHECK (rating >= 1 AND rating <= 5);
+
+COPY trucks(applicant, facility_type, location_description, address, food_items, latitude, longitude)
+FROM '/csv/trucks.csv' WITH (FORMAT csv, HEADER false, DELIMITER ',', QUOTE '"');
