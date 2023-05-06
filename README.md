@@ -19,6 +19,7 @@ Note that while it is not necessary to be authenticated search for food trucks o
 ## Testing
 
 To test this application you will need docker running on your computer because this application uses [TestContainers](https://www.testcontainers.org/) to instantiate a postgre container for integration tests.
+
 Command to run tests: `mvn test`
 
 ## Future Improvements
