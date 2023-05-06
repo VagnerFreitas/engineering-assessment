@@ -26,7 +26,7 @@ Command to run tests: `mvn test`
 
 I have several improvements planned for FoodTruckFinder:
 
-- Adding more logs to improve observability
+- Add more logs to improve observability
 - Add build pipeline
 - Allowing food truck owners to register and creating a corresponding user role
 - Improving pagination on food truck search results
