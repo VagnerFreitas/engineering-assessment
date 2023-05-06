@@ -25,7 +25,7 @@ public class FoodTruckController {
     @GetMapping
     @Operation(
             summary = "Finds all foodtrucks",
-            description = "Finds all foodtrucks and order by ratting.",
+            description = "Finds all foodtrucks and order by rating.",
             tags = { "Trucks" },
             responses = {
                     @ApiResponse(

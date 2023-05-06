@@ -2,21 +2,20 @@ package com.vagner.foodtruckfinder.model.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 @Data
 public class UserNewDto {
 
-    @NotBlank
+    @NotBlank(message = "must not be blank")
     @Length(max = 255)
     private String name;
 
-    @Email
-    @NotBlank
+    @Email(message = "must be a well-formed email address")
+    @NotBlank(message = "must not be blank")
     private String email;
 
-    @NotBlank
+    @NotBlank(message = "must not be blank")
     private String password;
 }

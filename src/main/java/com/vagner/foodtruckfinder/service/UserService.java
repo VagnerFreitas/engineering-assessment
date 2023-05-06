@@ -20,7 +20,7 @@ public class UserService {
         return User.builder()
                 .name(dto.getName())
                 .email(dto.getEmail())
-                .password(encoder.encode(dto.getPassword()))
+                .password(dto.getPassword())
                 .build();
     }
 
@@ -28,6 +28,8 @@ public class UserService {
         if (findByEmail(user.getEmail()).isPresent()) {
             throw new UserAlreadyExistsException("User already exists!");
         }
+
+        user.setPassword(encoder.encode(user.getPassword()));
         userRepository.save(user);
     }
 

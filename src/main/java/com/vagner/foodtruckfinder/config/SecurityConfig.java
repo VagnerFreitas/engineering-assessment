@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,7 +24,7 @@ public class SecurityConfig {
         return  http
                 .cors().and().csrf().disable()
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v1/foodtruck","/api/v1/user","/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                        .requestMatchers("/api/v1/foodtruck","/api/v1/user","/swagger-ui/**", "/v1/api-docs/**").permitAll()
                         .requestMatchers("/api/v1/rating").authenticated()
                 )
                 .userDetailsService(userDetailService)

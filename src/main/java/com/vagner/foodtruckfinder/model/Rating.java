@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Range;
 
 @Entity
 @Table(name = "ratings")
@@ -33,6 +34,7 @@ public class Rating {
     @JoinColumn(name = "truck_id")
     private Truck truck;
 
+    @Range(min = 0, max = 5)
     private Integer rating;
 
 }
